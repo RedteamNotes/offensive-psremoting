@@ -475,7 +475,7 @@ class OffensivePSRemoting:
                 readline.parse_and_bind("tab: complete")
                 readline.set_completer(self._completer)
             except Exception:
-                readline = None
+                pass  # readline completion is optional; keep running without it
 
     def _log(self, msg: str):
         if self.verbose or self.debug:
