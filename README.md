@@ -48,7 +48,7 @@ opsr -h
 opsr -v
 
 # 示例：Negotiate（行为更接近 PowerShell 的 -Authentication Negotiate）
-opsr -server 192.168.24.155 -auth negotiate -user 'WORKGROUP\administrator' -cred -
+opsr -t 192.168.24.155 -a negotiate -u 'WORKGROUP\administrator' -p -
 
 # 进入后输入 :help 查看本地命令
 ```
