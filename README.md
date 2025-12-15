@@ -28,6 +28,9 @@
 pipx install offensive-psremoting
 # 或在仓库目录中安装
 pipx install .
+
+# 卸载
+pipx uninstall offensive-psremoting
 ```
 
 也可以使用 venv：
