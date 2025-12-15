@@ -18,6 +18,7 @@ dependencies = [
   "pyspnego",
   "requests",
   "urllib3",
+  "cryptography>=41.0",
 ]
 
 [project.scripts]

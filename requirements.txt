@@ -1,0 +1,12 @@
+# Core transport & PSRP
+pypsrp>=0.8.1
+requests>=2.25
+urllib3>=1.26
+cryptography>=41.0
+
+# Negotiate/SPNEGO (Kerberos/NTLM/CredSSP glue)
+pyspnego>=0.10.0
+
+# Optional (Kerberos/GSSAPI). On Kali/Debian prefer system package:
+#   sudo apt-get install -y python3-gssapi
+# gssapi
