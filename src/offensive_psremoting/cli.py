@@ -76,10 +76,10 @@ def env_bool(key: str, default: bool = False) -> bool:
 def build_parser() -> argparse.ArgumentParser:
     epilog = r"""
 Examples:
-  opsr -server 192.168.24.155 -auth negotiate -user 'WORKGROUP\administrator' -cred -
-  opsr -server 192.168.24.155 -auth ntlm -user 'DOMAIN\user' -cred -
-  opsr -server server04.megabank.local --ssl --cert-validation ignore -auth negotiate -user 'MEGABANK\s.helmer' -cred -
-  opsr -server server04.megabank.local -auth kerberos -user 'MEGABANK\s.helmer' --ccache /tmp/krb5cc_1000 --no-pass
+  opsr -t 192.168.24.155 -a negotiate -u 'WORKGROUP\administrator' -p -
+  opsr -t 192.168.24.155 -a ntlm -u 'DOMAIN\user' -p -
+  opsr -t server04.megabank.local --ssl --cert-validation ignore -a negotiate -u 'MEGABANK\s.helmer' -p -
+  opsr -t server04.megabank.local -a kerberos -u 'MEGABANK\s.helmer' --ccache /tmp/krb5cc_1000 --no-pass
 """
     p = argparse.ArgumentParser(
         prog=CMD_NAME,
@@ -89,17 +89,17 @@ Examples:
     )
     p.add_argument("-v", "--version", action="version", version=f"%(prog)s 0.1.4")
 
-    p.add_argument("-server", "--server", default=getenv2("SERVER", "127.0.0.1"),
+    p.add_argument("-t", "--target", dest="target", default=getenv2("SERVER", "127.0.0.1"),
                    help="Target host/IP (default: env SERVER)")
-    p.add_argument("-user", "--user", default=getenv2("USER", r"WORKGROUP\administrator"),
+    p.add_argument("-u", "--username", dest="username", default=getenv2("USER", r"WORKGROUP\administrator"),
                    help=r"Username, e.g. 'DOMAIN\user' or 'user@domain' (default: env USER)")
 
-    p.add_argument("-cred", "--cred", default=getenv2("PASS", None),
+    p.add_argument("-p", "--password", dest="password", default=getenv2("PASS", None),
                    help="Password. Use '-' to prompt. (default: env PASS)")
-    p.add_argument("--cred-stdin", action="store_true", default=False,
-                   help="Read password from stdin (first line). Overrides -cred.")
-    p.add_argument("--cred-file", default=None,
-                   help="Read password from file (first line). Overrides -cred.")
+    p.add_argument("--password-stdin", action="store_true", default=False,
+                   help="Read password from stdin (first line). Overrides -p.")
+    p.add_argument("--password-file", default=None,
+                   help="Read password from file (first line). Overrides -p.")
     p.add_argument("--no-pass", action="store_true", default=env_bool("NO_PASS", False),
                    help="Do not supply password (meaningful with kerberos/negotiate/certificate).")
     p.add_argument("--ccache", default=getenv2("CCACHE", None),
@@ -112,7 +112,7 @@ Examples:
     p.add_argument("-endpoint", "--endpoint", default=(getenv2("ENDPOINT", "") or "").strip() or None,
                    help="Session configuration name (JEA endpoint). (default: env ENDPOINT)")
 
-    p.add_argument("-auth", "--auth", default=getenv2("AUTH", "negotiate"),
+    p.add_argument("-a", "--auth", default=getenv2("AUTH", "negotiate"),
                    choices=["negotiate", "ntlm", "kerberos", "basic", "credssp", "certificate"],
                    help="Auth protocol. (default: env AUTH or negotiate)")
     p.add_argument("--ssl", action="store_true", default=env_bool("SSL", False),
@@ -437,14 +437,14 @@ def _read_password(args) -> Optional[str]:
         raise ValueError("'-H/--hash' is not supported in this tool (placeholder only).")
     if args.no_pass:
         return None
-    if args.cred_file:
-        with open(args.cred_file, "r", encoding="utf-8", errors="ignore") as f:
+    if args.password_file:
+        with open(args.password_file, "r", encoding="utf-8", errors="ignore") as f:
             return (f.readline() or "").rstrip("\r\n")
-    if args.cred_stdin:
+    if args.password_stdin:
         return (sys.stdin.readline() or "").rstrip("\r\n")
-    if args.cred is None or args.cred == "-":
+    if args.password is None or args.password == "-":
         return getpass.getpass("Password: ")
-    return args.cred
+    return args.password
 
 def _filter_wsman_kwargs(kwargs: Dict[str, Any]) -> Dict[str, Any]:
     try:
@@ -832,7 +832,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         os.environ["KRB5CCNAME"] = args.ccache
 
     if args.no_pass and args.auth in ("ntlm", "basic", "credssp"):
-        print("[ERROR] --no-pass is not supported with -auth ntlm/basic/credssp (password is required).")
+        print("[ERROR] --no-pass is not supported with --auth ntlm/basic/credssp (password is required).")
         return 2
 
     try:
@@ -842,8 +842,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 2
 
     wsman_kwargs: Dict[str, Any] = dict(
-        server=args.server,
-        username=args.user,
+        server=args.target,
+        username=args.username,
         password=password,
         ssl=args.ssl,
         auth=args.auth,
