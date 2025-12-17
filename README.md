@@ -203,22 +203,23 @@ Examples:
 
 ```pwsh
 ┌──(kali㉿kali)-[~/RedteamNotes/aptlabs]
-└─$ opsr -t 192.168.20.15 -u adfs_svc -p 'S3cur!ty' -a negotiate
+└─$ opsr -t 192.168.20.15 -u adfs_svc -p 'S3cur!ty' -a negotiate 
 
-      ,pW"Wq.  ,pP"Ybd `7MMpdMAo.`7Mb,od8 
-     6W'   `Wb 8I   `"   MM   `Wb  MM' "' 
-     RE     DT `EAMNo.   TE    S8  MM     
-     YA.   ,A9 L.   I8   MM   ,AP  MM     
-      `Ybmd9'  M9mmmP'   MMbmmd' .JMML.   
-                         MM               
-                       .JMML.  
+
+      ,pW"Wq.`7MMpdMAo. ,pP"Ybd `7Mb,od8 
+     6W'   `Wb MM   `Wb 8I   `"   MM' "' 
+     RE     DT EA    MN `OTESa.   MM     
+     YA.   ,A9 MM   ,AP L.   I8   MM     
+      `Ybmd9'  MMbmmd'  M9mmmP' .JMML.   
+               MM                        
+             .JMML. 
                   
         Offensive PSRemoting  v0.1.4
 
 https://github.com/RedteamNotes/offensive-psremoting
-By @RedteamNotes
+By @RedteamNotes   Email: 888256@gmail.com
 
-opsr started. Input :help for help.
+opsr started. Input :help for local commands.
 [INFO] mode=auto raw_disabled_by_nolang=False allow_external=True
 [INFO] verbose=False debug=False
 opsr(auto)> :help
