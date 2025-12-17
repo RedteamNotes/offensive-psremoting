@@ -113,14 +113,13 @@ opsr -t 192.168.24.155 -a negotiate -u 'WORKGROUP\administrator' -p -
 
 ```zsh
 ┌──(kali㉿kali)-[~/RedteamNotes/offensive-psremoting]
-└─$ opsr -h
-usage: opsr [-h] [-v] [-t TARGET] [-u USERNAME] [-p PASSWORD] [--password-stdin] [--password-file PASSWORD_FILE] [--no-pass] [--ccache CCACHE] [-H NTLM_HASH]
-            [-endpoint ENDPOINT] [-a {negotiate,ntlm,kerberos,basic,credssp,certificate}] [--ssl] [--port PORT] [--path PATH] [--cert-validation CERT_VALIDATION]
-            [--connection-timeout CONNECTION_TIMEOUT] [--op-timeout OP_TIMEOUT] [--rd-timeout RD_TIMEOUT] [--proxy PROXY] [--no-proxy] [--encryption {auto,always,never}]
-            [--locale LOCALE] [--data-locale DATA_LOCALE] [--reconnection-retries RECONNECTION_RETRIES] [--reconnection-backoff RECONNECTION_BACKOFF] [--negotiate-delegate]
-            [--negotiate-hostname-override NEGOTIATE_HOSTNAME_OVERRIDE] [--negotiate-service NEGOTIATE_SERVICE] [--negotiate-send-cbt] [--no-negotiate-send-cbt]
-            [--certificate-pem CERTIFICATE_PEM] [--certificate-key-pem CERTIFICATE_KEY_PEM] [--credssp-auth-mechanism {auto,ntlm,kerberos}]
-            [--credssp-minimum-version CREDSSP_MINIMUM_VERSION] [--credssp-disable-tlsv1-2] [-verbose] [-debug]
+└─$ opsr -h                                                        
+usage: opsr [-h] [-v] [-t TARGET] [-u USERNAME] [-p PASSWORD] [--password-stdin] [--password-file PASSWORD_FILE] [--no-pass] [--ccache CCACHE] [-H NTLM_HASH] [-endpoint ENDPOINT]
+            [-a {negotiate,ntlm,kerberos,basic,credssp,certificate}] [--ssl] [--port PORT] [--path PATH] [--cert-validation CERT_VALIDATION] [--connection-timeout CONNECTION_TIMEOUT]
+            [--op-timeout OP_TIMEOUT] [--rd-timeout RD_TIMEOUT] [--proxy PROXY] [--no-proxy] [--encryption {auto,always,never}] [--locale LOCALE] [--data-locale DATA_LOCALE]
+            [--reconnection-retries RECONNECTION_RETRIES] [--reconnection-backoff RECONNECTION_BACKOFF] [--negotiate-delegate] [--negotiate-hostname-override NEGOTIATE_HOSTNAME_OVERRIDE]
+            [--negotiate-service NEGOTIATE_SERVICE] [--negotiate-send-cbt] [--no-negotiate-send-cbt] [--certificate-pem CERTIFICATE_PEM] [--certificate-key-pem CERTIFICATE_KEY_PEM]
+            [--credssp-auth-mechanism {auto,ntlm,kerberos}] [--credssp-minimum-version CREDSSP_MINIMUM_VERSION] [--credssp-disable-tlsv1-2] [-verbose] [-debug]
 
 PSRP/WSMan (WinRM) interactive PowerShell Remoting REPL client (raw/struct/auto).
 
@@ -186,10 +185,10 @@ options:
   -debug, --debug       Debug mode: print traceback on errors.
 
 Examples:
-  opsr -t 192.168.24.155 -a negotiate -u 'WORKGROUP\administrator' -p -
-  opsr -t 192.168.24.155 -a ntlm -u 'DOMAIN\user' -p -
-  opsr -t server04.megabank.local --ssl --cert-validation ignore -a negotiate -u 'MEGABANK\s.helmer' -p -
-  opsr -t server04.megabank.local -a kerberos -u 'MEGABANK\s.helmer' --ccache /tmp/krb5cc_1000 --no-pass
+  opsr -t 10.10.10.10 -a negotiate -u 'WORKGROUP\administrator' -p -
+  opsr -t 10.10.10.10 -a ntlm -u 'REDTEAMNOTES\user' -p -
+  opsr -t srv01.redteamnotes.local --ssl --cert-validation ignore -a negotiate -u 'REDTEAMNOTES\redpen' -p -
+  opsr -t srv01.redteamnotes.local -a kerberos -u 'REDTEAMNOTES\redpen' --ccache /tmp/krb5cc_1000 --no-pass
 ```
 
 ## 示例
