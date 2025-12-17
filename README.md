@@ -71,6 +71,25 @@ pip install .
 ```
 ### 依赖库说明
 
+```zsh
+┌──(kali㉿kali)-[~/RedteamNotes/aptlabs/offensive-psremoting]
+└─$ cat requirements.txt   
+# Core transport & PSRP
+pypsrp>=0.8.1
+requests>=2.25
+urllib3>=1.26
+cryptography>=41.0
+
+# Negotiate/SPNEGO (Kerberos/NTLM/CredSSP glue)
+pyspnego>=0.10.0
+
+# Optional (Kerberos/GSSAPI). On Kali/Debian prefer system package:
+#   sudo apt-get install -y python3-gssapi
+# gssapi
+```
+
+如必要可执行 `pip install -r requirements.txt`。
+
 - pypsrp：负责实现 PSRP（PowerShell Remoting Protocol）与 WSMan（WinRM 的 HTTP/S 管理层）交互，提供 WSMan / RunspacePool / PowerShell 等核心对象。REPL、raw/struct 两种执行方式，本质都建立在 pypsrp 的 Runspace/PowerShell 管道之上。
 - requests / urllib3：pypsrp 底层通过 requests 发起 HTTP 请求，连接池和重试等由 urllib3 支撑。HTTPConnectionPool...、Max retries exceeded 这类异常基本都来自这条链路。
 - pyspnego（import spnego）：负责实现 SPNEGO / Negotiate 认证协商（也就是服务端 WWW-Authenticate: Negotiate 时，客户端决定走 Kerberos 还是 NTLM 等），并把对应的认证令牌封装到 HTTP 交互里。遇到的 spnego、GSSAPIProxy requires ... krb5 就属于这个模块在走 Kerberos/GSSAPI 路径时缺少依赖。
