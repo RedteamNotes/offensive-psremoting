@@ -10,7 +10,7 @@ Offensive PSRemoting 是一个易于在 Linux 中使用的 WinRM、PowerShell Re
 
 因此，这个 REPL 的定位可以概括为：**面向 Linux 环境补齐原生 PowerShell Remoting 体验差距**，并在受限端点（JEA/NoLanguage）下通过结构化 PSRP 调用提升可用性；它不改变远端的授权边界与策略，只是用更“端点友好”的表达方式发起同样的远程调用，同时提供更清晰的参数化、调试与版本/依赖信息输出，便于比赛、演练与实验室环境的复现与定位问题。
 
-## REPL 的意义是什么？
+### REPL 的意义是什么？
 
 它的意义和原理可以用交互式Shell + 循环驱动 + 状态保持来理解。
 
