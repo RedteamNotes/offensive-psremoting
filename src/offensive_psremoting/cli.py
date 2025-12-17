@@ -3,7 +3,7 @@
 
 """
 Offensive PSRemoting (opsr)
-PSRP/WSMan (WinRM) interactive PowerShell Remoting REPL client.
+A PowerShell Remoting client over PSRP and WSMan with raw, struct, and auto modes, resilient under JEA and Constrained Language Mode.
 
 Modes:
   - auto  : try raw first; if NoLanguage blocks script syntax -> fallback to struct automatically
@@ -61,6 +61,10 @@ BANNER = r"""
              .JMML. 
                   
         Offensive PSRemoting  v0.1.4
+        
+A PowerShell Remoting client over PSRP and WSMan with
+raw, struct and auto modes, resilient under JEA and 
+Constrained Language Mode.
 
 https://github.com/RedteamNotes/offensive-psremoting
 By @RedteamNotes   Email: 888256@gmail.com
