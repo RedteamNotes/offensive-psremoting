@@ -56,7 +56,7 @@ opsr -t 192.168.24.155 -a negotiate -u 'WORKGROUP\administrator' -p -
 ## 帮助菜单
 
 ```zsh
-┌──(kali㉿kali)-[~/RedteamNotes/aptlabs/offensive-psremoting]
+┌──(kali㉿kali)-[~/RedteamNotes/offensive-psremoting]
 └─$ opsr -h
 usage: opsr [-h] [-v] [-t TARGET] [-u USERNAME] [-p PASSWORD] [--password-stdin] [--password-file PASSWORD_FILE] [--no-pass] [--ccache CCACHE] [-H NTLM_HASH]
             [-endpoint ENDPOINT] [-a {negotiate,ntlm,kerberos,basic,credssp,certificate}] [--ssl] [--port PORT] [--path PATH] [--cert-validation CERT_VALIDATION]
