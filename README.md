@@ -138,7 +138,7 @@ Examples:
 
 ## 示例
 
-```powershell
+```zsh
 ┌──(kali㉿kali)-[~/RedteamNotes/aptlabs]
 └─$ opsr -t 192.168.20.15 -u adfs_svc -p 'S3cur!ty' -a negotiate
 
