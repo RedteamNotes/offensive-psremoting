@@ -1,6 +1,6 @@
 # Offensive PSRemoting
 
-一个基于 **PSRP/WSMan（WinRM）** 的交互式 PowerShell Remoting REPL 客户端，提供 `raw / struct / auto` 三种执行模式，便于在不同受限环境下进行更稳定的远程交互、命令枚举与排错。
+一个基于 PSRP 与 WSMan 的 PowerShell Remoting 客户端，具备 raw、struct 与 auto 三种模式，在 JEA 与受限语言模式（Constrained Language Mode）环境下仍具韧性、可保持正常工作。
 
 因为Powershell的JEA或受限语言模式下，Evil-WinRM使用受限；因依赖库版本等问题，Kali中又经常无法正常使用Powershell Remoting技术，所以有了这个工具。
 
