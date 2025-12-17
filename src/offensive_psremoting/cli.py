@@ -61,6 +61,9 @@ BANNER = r"""
                        .JMML.  
                   
         Offensive PSRemoting  v0.1.4
+
+https://github.com/RedteamNotes/offensive-psremoting
+By @RedteamNotes
      
 """
 
