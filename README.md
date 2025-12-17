@@ -136,6 +136,98 @@ Examples:
   opsr -t server04.megabank.local -a kerberos -u 'MEGABANK\s.helmer' --ccache /tmp/krb5cc_1000 --no-pass
 ```
 
+## 示例
+
+```powershell
+┌──(kali㉿kali)-[~/RedteamNotes/aptlabs]
+└─$ opsr -t 192.168.20.15 -u adfs_svc -p 'S3cur!ty' -a negotiate
+
+      ,pW"Wq.  ,pP"Ybd `7MMpdMAo.`7Mb,od8 
+     6W'   `Wb 8I   `"   MM   `Wb  MM' "' 
+     RE     DT `EAMNo.   TE    S8  MM     
+     YA.   ,A9 L.   I8   MM   ,AP  MM     
+      `Ybmd9'  M9mmmP'   MMbmmd' .JMML.   
+                         MM               
+                       .JMML.  
+                  
+        Offensive PSRemoting  v0.1.4
+
+https://github.com/RedteamNotes/offensive-psremoting
+By @RedteamNotes
+
+opsr started. Input :help for help.
+[INFO] mode=auto raw_disabled_by_nolang=False allow_external=True
+[INFO] verbose=False debug=False
+opsr(auto)> :help
+opsr local commands:
+  :help
+  :mode auto|raw|struct
+  :cmds [pattern]         list allowed commands
+  :info <name>            show command info (client-side formatting)
+  :dump <name>            dump all properties from Get-Command <name>
+  :endpoint <name>        set endpoint and reconnect
+  :reconnect              reconnect
+  :external on|off         struct-mode .exe shortcut
+  :ver
+  :quit
+opsr(auto)> get-command
+[ERROR] The syntax is not supported by this runspace. This can occur if the runspace is in no-language mode.
+[INFO] raw/script-text is blocked by NoLanguage JEA runspace; fallback to struct (Command+Parameters).
+Clear-Host
+Exit-PSSession
+Get-AsciiArt
+get-childitem
+Get-Command
+Get-FormatData
+Get-Help
+Get-NetIPAddress
+Get-ProcessID
+Get-ProcessName
+Invoke-CommandCMD
+Measure-Object
+Out-Default
+Select-Object
+Get-Member
+Select-Object
+opsr(auto)> :info Get-AsciiArt
+Name: Get-AsciiArt
+Type: Function
+Source/Module: 
+Definition:
+
+    param([string]$type='coffee')
+$coffeebreak=@"
+         {
+      {   }
+       }_{ __{
+    .-{   }   }-.
+   (   }     {   )
+   |`-.._____..-'|
+   |             ;--.
+   |            (__  \
+   |             | )  )
+   |             |/  /
+   |             /  /   
+   |            (  /
+   \             y'
+    `-.._____..-'
+"@
+$smokebreak=@"
+                   (  )/  
+                    )(/
+ ________________  ( /)
+()__)____________))))) 
+"@
+    $art=switch($type){
+        coffee {$coffeebreak}
+        smoke {$smokebreak}
+    }
+    if(!$art){$art=$type}
+    $ExecutionContext.InvokeCommand.ExpandString($art)
+--------------------------------------------------
+opsr(auto)> 
+```
+
 ## 工具脚本
 
 ```bash
