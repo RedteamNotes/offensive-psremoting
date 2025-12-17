@@ -51,6 +51,7 @@ APP_NAME = "Offensive PSRemoting"
 CMD_NAME = "opsr"
 
 BANNER = r"""
+
      ,pW"Wq.  ,pP"Ybd `7MMpdMAo.`7Mb,od8 
      6W'   `Wb 8I   `"   MM   `Wb  MM' "' 
      8M     M8 `YMMMa.   MM    M8  MM     
@@ -59,7 +60,7 @@ BANNER = r"""
                          MM               
                        .JMML.  
                   
-          Offensive PSRemoting  v0.1.4
+        Offensive PSRemoting  v0.1.4
      
 """
 
