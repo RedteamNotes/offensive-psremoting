@@ -215,6 +215,10 @@ Examples:
              .JMML. 
                   
         Offensive PSRemoting  v0.1.4
+        
+A PowerShell Remoting client over PSRP and WSMan with
+raw, struct and auto modes, resilient under JEA and 
+Constrained Language Mode.
 
 https://github.com/RedteamNotes/offensive-psremoting
 By @RedteamNotes   Email: 888256@gmail.com
