@@ -85,10 +85,10 @@ def env_bool(key: str, default: bool = False) -> bool:
 def build_parser() -> argparse.ArgumentParser:
     epilog = r"""
 Examples:
-  opsr -t 192.168.24.155 -a negotiate -u 'WORKGROUP\administrator' -p -
-  opsr -t 192.168.24.155 -a ntlm -u 'DOMAIN\user' -p -
-  opsr -t server04.megabank.local --ssl --cert-validation ignore -a negotiate -u 'MEGABANK\s.helmer' -p -
-  opsr -t server04.megabank.local -a kerberos -u 'MEGABANK\s.helmer' --ccache /tmp/krb5cc_1000 --no-pass
+  opsr -t 10.10.10.10 -a negotiate -u 'WORKGROUP\administrator' -p -
+  opsr -t 10.10.10.10 -a ntlm -u 'REDTEAMNOTES\user' -p -
+  opsr -t srv01.redteamnotes.local --ssl --cert-validation ignore -a negotiate -u 'REDTEAMNOTES\redpen' -p -
+  opsr -t srv01.redteamnotes.local -a kerberos -u 'REDTEAMNOTES\redpen' --ccache /tmp/krb5cc_1000 --no-pass
 """
     p = argparse.ArgumentParser(
         prog=CMD_NAME,
@@ -555,7 +555,7 @@ class OffensivePSRemoting:
             "  :dump <name>            dump all properties from Get-Command <name>",
             "  :endpoint <name>        set endpoint and reconnect",
             "  :reconnect              reconnect",
-            "  :external on|off         struct-mode .exe shortcut",
+            "  :external on|off        struct-mode .exe shortcut",
             "  :ver",
             "  :quit",
         ]))
@@ -770,7 +770,7 @@ class OffensivePSRemoting:
     def loop(self):
         print(BANNER)
         self.connect()
-        print("opsr started. Input :help for help.")
+        print("opsr started. Input :help for local commands.")
         self.ver()
 
         while True:
