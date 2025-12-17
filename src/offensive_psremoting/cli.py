@@ -54,7 +54,7 @@ BANNER = r"""
 
       ,pW"Wq.  ,pP"Ybd `7MMpdMAo.`7Mb,od8 
      6W'   `Wb 8I   `"   MM   `Wb  MM' "' 
-     8M     M8 `YMMMa.   MM    M8  MM     
+     RE     DT `EAMNo.   TE    S8  MM     
      YA.   ,A9 L.   I8   MM   ,AP  MM     
       `Ybmd9'  M9mmmP'   MMbmmd' .JMML.   
                          MM               
