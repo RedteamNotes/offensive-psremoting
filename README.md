@@ -53,6 +53,89 @@ opsr -t 192.168.24.155 -a negotiate -u 'WORKGROUP\administrator' -p -
 # 进入后输入 :help 查看本地命令
 ```
 
+## 帮助菜单
+
+```zsh
+┌──(kali㉿kali)-[~/RedteamNotes/aptlabs/offensive-psremoting]
+└─$ opsr -h
+usage: opsr [-h] [-v] [-t TARGET] [-u USERNAME] [-p PASSWORD] [--password-stdin] [--password-file PASSWORD_FILE] [--no-pass] [--ccache CCACHE] [-H NTLM_HASH]
+            [-endpoint ENDPOINT] [-a {negotiate,ntlm,kerberos,basic,credssp,certificate}] [--ssl] [--port PORT] [--path PATH] [--cert-validation CERT_VALIDATION]
+            [--connection-timeout CONNECTION_TIMEOUT] [--op-timeout OP_TIMEOUT] [--rd-timeout RD_TIMEOUT] [--proxy PROXY] [--no-proxy] [--encryption {auto,always,never}]
+            [--locale LOCALE] [--data-locale DATA_LOCALE] [--reconnection-retries RECONNECTION_RETRIES] [--reconnection-backoff RECONNECTION_BACKOFF] [--negotiate-delegate]
+            [--negotiate-hostname-override NEGOTIATE_HOSTNAME_OVERRIDE] [--negotiate-service NEGOTIATE_SERVICE] [--negotiate-send-cbt] [--no-negotiate-send-cbt]
+            [--certificate-pem CERTIFICATE_PEM] [--certificate-key-pem CERTIFICATE_KEY_PEM] [--credssp-auth-mechanism {auto,ntlm,kerberos}]
+            [--credssp-minimum-version CREDSSP_MINIMUM_VERSION] [--credssp-disable-tlsv1-2] [-verbose] [-debug]
+
+PSRP/WSMan (WinRM) interactive PowerShell Remoting REPL client (raw/struct/auto).
+
+options:
+  -h, --help            show this help message and exit
+  -v, --version         show program's version number and exit
+  -t, --target TARGET   Target host/IP (default: env SERVER)
+  -u, --username USERNAME
+                        Username, e.g. 'DOMAIN\user' or 'user@domain' (default: env USER)
+  -p, --password PASSWORD
+                        Password. Use '-' to prompt. (default: env PASS)
+  --password-stdin      Read password from stdin (first line). Overrides -p.
+  --password-file PASSWORD_FILE
+                        Read password from file (first line). Overrides -p.
+  --no-pass             Do not supply password (meaningful with kerberos/negotiate/certificate).
+  --ccache CCACHE       Kerberos ccache path (export as KRB5CCNAME).
+  -H, --hash NTLM_HASH  Not supported in this tool (placeholder only).
+  -endpoint, --endpoint ENDPOINT
+                        Session configuration name (JEA endpoint). (default: env ENDPOINT)
+  -a, --auth {negotiate,ntlm,kerberos,basic,credssp,certificate}
+                        Auth protocol. (default: env AUTH or negotiate)
+  --ssl                 Use SSL/TLS (default: env SSL=1)
+  --port PORT           Port override (default: 5986 if --ssl else 5985).
+  --path PATH           WinRM path (default: wsman).
+  --cert-validation CERT_VALIDATION
+                        validate|ignore|/path/to/ca.pem (default: validate)
+  --connection-timeout CONNECTION_TIMEOUT
+                        HTTP connection timeout seconds (default: 30)
+  --op-timeout OP_TIMEOUT
+                        WSMan operation timeout seconds (default: 15)
+  --rd-timeout RD_TIMEOUT
+                        Read timeout seconds (default: 30)
+  --proxy PROXY         Proxy URL (e.g. http://127.0.0.1:8080).
+  --no-proxy            Ignore environment proxy and connect directly.
+  --encryption {auto,always,never}
+                        Message encryption policy (default: auto).
+  --locale LOCALE       WSMan Locale (default: en-US)
+  --data-locale DATA_LOCALE
+                        WSMan DataLocale (default: same as locale)
+  --reconnection-retries RECONNECTION_RETRIES
+                        Retries on connection problem (default: 0)
+  --reconnection-backoff RECONNECTION_BACKOFF
+                        Backoff seconds base (default: 2.0)
+  --negotiate-delegate  Negotiate delegation (Kerberos only).
+  --negotiate-hostname-override NEGOTIATE_HOSTNAME_OVERRIDE
+                        Override hostname used for SPN calculation.
+  --negotiate-service NEGOTIATE_SERVICE
+                        Override service part of SPN (default: WSMAN).
+  --negotiate-send-cbt  Bind CBT on HTTPS (default: True).
+  --no-negotiate-send-cbt
+                        Disable CBT binding.
+  --certificate-pem CERTIFICATE_PEM
+                        Certificate PEM (for -auth certificate).
+  --certificate-key-pem CERTIFICATE_KEY_PEM
+                        Certificate key PEM (for -auth certificate).
+  --credssp-auth-mechanism {auto,ntlm,kerberos}
+                        CredSSP sub-auth mechanism (default: auto).
+  --credssp-minimum-version CREDSSP_MINIMUM_VERSION
+                        CredSSP minimum server version (default: 2).
+  --credssp-disable-tlsv1-2
+                        Allow insecure TLSv1.0 for CredSSP (default: False).
+  -verbose, --verbose   Verbose client-side logs.
+  -debug, --debug       Debug mode: print traceback on errors.
+
+Examples:
+  opsr -t 192.168.24.155 -a negotiate -u 'WORKGROUP\administrator' -p -
+  opsr -t 192.168.24.155 -a ntlm -u 'DOMAIN\user' -p -
+  opsr -t server04.megabank.local --ssl --cert-validation ignore -a negotiate -u 'MEGABANK\s.helmer' -p -
+  opsr -t server04.megabank.local -a kerberos -u 'MEGABANK\s.helmer' --ccache /tmp/krb5cc_1000 --no-pass
+```
+
 ## 工具脚本
 
 ```bash
