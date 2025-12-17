@@ -71,8 +71,8 @@ pipx uninstall offensive-psremoting
 也可以使用 venv：
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv opsr-venv
+source opsr-venv/bin/activate
 git clone https://github.com/RedteamNotes/offensive-psremoting.git
 cd offensive-psremoting
 pip install .
