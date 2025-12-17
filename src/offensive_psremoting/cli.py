@@ -50,14 +50,17 @@ from . import __version__
 APP_NAME = "Offensive PSRemoting"
 CMD_NAME = "opsr"
 
-BANNER = r""" ,pW"Wq.  ,pP"Ybd `7MMpdMAo.`7Mb,od8 
+BANNER = r"""
+,pW"Wq.  ,pP"Ybd `7MMpdMAo.`7Mb,od8 
 6W'   `Wb 8I   `"   MM   `Wb  MM' "' 
 8M     M8 `YMMMa.   MM    M8  MM     
 YA.   ,A9 L.   I8   MM   ,AP  MM     
  `Ybmd9'  M9mmmP'   MMbmmd' .JMML.   
                     MM               
                   .JMML.  
-           Offensive PSRemoting  v0.1.4
+                  
+     Offensive PSRemoting  v0.1.4
+     
 """
 
 def getenv2(key: str, default: Optional[str] = None) -> Optional[str]:
