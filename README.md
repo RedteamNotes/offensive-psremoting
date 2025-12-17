@@ -2,6 +2,8 @@
 
 一个基于 **PSRP/WSMan（WinRM）** 的交互式 PowerShell Remoting REPL 客户端，提供 `raw / struct / auto` 三种执行模式，便于在不同受限环境下进行更稳定的远程交互、命令枚举与排错。
 
+因为Powershell的JEA或受限语言模式下，Evil-WinRM使用受限；因依赖库版本等问题，Kali中又经常无法正常使用Powershell Remoting技术，所以有了这个工具。
+
 Offensive PSRemoting 是一个易于在 Linux 中使用的 WinRM、PowerShell Remoting 交互式客户端。它基于 PSRP/WSMan 在远端维持 Runspace 会话，提供接近 Enter-PSSession 的交互体验；并提供结构化命令管道执行模式，在 JEA、NoLanguage 等受限端点下通常更稳定、可用性更强。
 
 这里 REPL 客户端的核心价值，不在于绕过 WinRM、JEA 登录，而在于**在既定的远端策略与受限端点条件下，提升跨平台的连接一致性与交互可用性**。在 Windows 上，PowerShell 原生的 `Enter-PSSession / New-PSSession` 与系统内置的 Negotiate/Kerberos/WinRM 生态高度耦合，认证协商、票据处理、端点行为都更原生一致，可谓黄金客户端了；而在 Linux 下，PSRemoting/WinRM 的实现往往依赖更长的链路（`requests/urllib3 → pypsrp → pyspnego → gssapi/krb5`），任何一环的缺失或版本差异都可能表现为 401、协商失败、`No module named 'krb5'` 等问题，因此**Linux 场景对“可复现、可控、可诊断”的客户端更刚需**。
