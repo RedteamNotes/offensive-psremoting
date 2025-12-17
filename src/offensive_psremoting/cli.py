@@ -52,13 +52,13 @@ CMD_NAME = "opsr"
 
 BANNER = r"""
 
-      ,pW"Wq.  ,pP"Ybd `7MMpdMAo.`7Mb,od8 
-     6W'   `Wb 8I   `"   MM   `Wb  MM' "' 
-     RE     DT `EAMNo.   TE    S8  MM     
-     YA.   ,A9 L.   I8   MM   ,AP  MM     
-      `Ybmd9'  M9mmmP'   MMbmmd' .JMML.   
-                         MM               
-                       .JMML.  
+      ,pW"Wq.`7MMpdMAo. ,pP"Ybd `7Mb,od8 
+     6W'   `Wb MM   `Wb 8I   `"   MM' "' 
+     RE     DT EA    MN `OTESa.   MM     
+     YA.   ,A9 MM   ,AP L.   I8   MM     
+      `Ybmd9'  MMbmmd'  M9mmmP' .JMML.   
+               MM                        
+             .JMML. 
                   
         Offensive PSRemoting  v0.1.4
 
