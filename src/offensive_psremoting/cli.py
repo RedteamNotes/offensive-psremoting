@@ -767,7 +767,7 @@ class OffensivePSRemoting:
     def loop(self):
         print(BANNER)
         self.connect()
-        print("opsr started. 输入 :help 查看帮助。")
+        print("opsr started. Input :help for help。")
         self.ver()
 
         while True:
