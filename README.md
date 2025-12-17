@@ -72,7 +72,7 @@ pip install .
 ### 依赖库说明
 
 ```zsh
-┌──(kali㉿kali)-[~/RedteamNotes/aptlabs/offensive-psremoting]
+┌──(kali㉿kali)-[~/RedteamNotes/offensive-psremoting]
 └─$ cat requirements.txt   
 # Core transport & PSRP
 pypsrp>=0.8.1
