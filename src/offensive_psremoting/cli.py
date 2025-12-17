@@ -63,8 +63,7 @@ BANNER = r"""
         Offensive PSRemoting  v0.1.4
 
 https://github.com/RedteamNotes/offensive-psremoting
-By @RedteamNotes
-     
+By @RedteamNotes   Email: 888256@gmail.com
 """
 
 def getenv2(key: str, default: Optional[str] = None) -> Optional[str]:
