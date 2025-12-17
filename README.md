@@ -291,7 +291,8 @@ $smokebreak=@"
 --------------------------------------------------
 opsr(auto)> 
 ```
-[./src/images/opsr-demo-SS.png]
+
+![opsr-demo-SS.png](assets/images/opsr-demo-SS.png)
 
 ## 工具脚本
 
