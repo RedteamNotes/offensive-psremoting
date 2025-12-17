@@ -56,8 +56,12 @@ REPL 的做法原理是什么？REPL 的核心循环就四步，反复执行：
 推荐使用 `pipx`（隔离环境、命令全局可用）：
 
 ```bash
-pipx install offensive-psremoting
-# 或在仓库目录中安装
+# 这样最便捷：
+pipx install git+https://github.com/RedteamNotes/offensive-psremoting.git
+
+# 或下载到本地后在仓库目录中安装：
+git clone https://github.com/RedteamNotes/offensive-psremoting.git
+cd offensive-psremoting
 pipx install .
 
 # 卸载
@@ -69,6 +73,8 @@ pipx uninstall offensive-psremoting
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+git clone https://github.com/RedteamNotes/offensive-psremoting.git
+cd offensive-psremoting
 pip install .
 ```
 ### 依赖库说明
