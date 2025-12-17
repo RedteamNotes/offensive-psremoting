@@ -633,7 +633,7 @@ class OffensivePSRemoting:
             print(shorten(stringify(defin)))
 
         if is_psrp_object(obj) and len(props) <= 1 and self._pick(props, "Name", "name") is not None:
-            print("[NOTE] CommandInfo 可能被 JEA/序列化瘦身，仅下发最少字段。")
+            print("[NOTE] CommandInfo may be stripped down by JEA or serialization, with only the minimal set of fields sent.")
 
     def info(self, name: str):
         out, errs = self._get_command_obj(name)
@@ -770,7 +770,7 @@ class OffensivePSRemoting:
     def loop(self):
         print(BANNER)
         self.connect()
-        print("opsr started. Input :help for help。")
+        print("opsr started. Input :help for help.")
         self.ver()
 
         while True:
